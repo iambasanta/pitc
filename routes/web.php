@@ -17,6 +17,8 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('members',[MemberController::class,'index'])->name('members.index');
         Route::get('members/create',[MemberController::class,'create'])->name('members.create');
         Route::post('members/create',[MemberController::class,'store'])->name('members.store');
+        Route::get('members/{member}/edit',[MemberController::class,'edit'])->name('members.edit');
+        Route::patch('members/{member}/edit',[MemberController::class,'update'])->name('members.update');
     });
 });
 

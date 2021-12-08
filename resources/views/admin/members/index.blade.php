@@ -53,7 +53,7 @@
                             @foreach($members as $member)
                             <tr>
                                 <td>
-                                    <a href="" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="{{route('members.edit',$member->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
                                     <a href="" class="p-2 text-danger"><i class="bi bi-trash"></i></a>
                                 </td>
                                 <td>

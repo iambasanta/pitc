@@ -23,6 +23,16 @@ class MemberController extends Controller
         return redirect('/admin/members')->with('message','New member added successfully!');
     }
 
+    public function edit(Member $member){
+        return view('admin.members.edit',compact('member'));
+    }
+
+    public function update(Member $member){
+        $member->update($this->validateRequest());
+        $this->storeImage($member);
+        return redirect('/admin/members')->with('message','Member details updated successfully!');
+    }
+
     private function validateRequest()
     {
         return request()->validate([
