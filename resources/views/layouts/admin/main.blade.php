@@ -19,8 +19,16 @@
 
 <body>
     <div id="app">
+    @guest
+
+        @yield('content')
+
+    @else
+
         @include('layouts.admin.sidebar')
         @yield('content')
+
+    @endguest
     </div>
     <script src="{{asset('backend/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('backend/js/bootstrap.bundle.min.js')}}"></script>
