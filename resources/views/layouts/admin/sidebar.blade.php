@@ -64,13 +64,13 @@
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
+                    <a href="{{route('members.index')}}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Members</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="#">All Members</a>
+                            <a href="{{route('members.index')}}">All Members</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="{{route('members.create')}}">Add Member</a>

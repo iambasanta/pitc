@@ -7,6 +7,11 @@ use App\Models\Member;
 
 class MemberController extends Controller
 {
+    public function index(){
+        $members = Member::latest()->paginate(10);
+        return view('admin.members.index',compact('members'));
+    }
+
     public function create(){
         return view('admin.members.create');
     }
@@ -15,7 +20,7 @@ class MemberController extends Controller
         $member = Member::create($this->validateRequest());
 
         $this->storeImage($member);
-
+        return redirect('/admin/members')->with('message','New member added successfully!');
     }
 
     private function validateRequest()
