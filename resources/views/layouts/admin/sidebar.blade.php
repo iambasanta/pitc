@@ -3,7 +3,7 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="#"><img src="{{asset('backend/images/logo/logo.png')}}" alt="Logo" style="width: 150px; height: 60px;"></a>
+                    <a href="{{route('admin.home')}}"><img src="{{asset('backend/images/logo/logo.png')}}" alt="Logo" style="width: 150px; height: 60px;"></a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -13,7 +13,7 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-item active ">
-                    <a href="#" class='sidebar-link'>
+                    <a href="{{route('admin.home')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -73,7 +73,7 @@
                             <a href="#">All Members</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">Add Member</a>
+                            <a href="{{route('members.create')}}">Add Member</a>
                         </li>
                     </ul>
                 </li>
