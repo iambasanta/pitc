@@ -11,7 +11,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('logout',[LoginController::class,'logout'])->name('admin.logout');
 
     Route::group(['middleware'=>'auth'],function(){
-        Route::get('/',[HomeController::class,'index'])->name('admin.home');
+        Route::get('/',[HomeController::class,'index'])->name('admin.home')->middleware('PreventBackToHistory');
     });
 });
 
