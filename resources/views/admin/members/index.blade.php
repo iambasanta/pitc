@@ -54,7 +54,13 @@
                             <tr>
                                 <td>
                                     <a href="{{route('members.edit',$member->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="" class="p-2 text-danger"><i class="bi bi-trash"></i></a>
+                                    <a href="#" class="p-2 text-danger" onclick="event.preventDefault();document.getElementById('delete-member-form').submit();">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                    <form id="delete-member-form" action="{{route('members.destroy',$member->id)}}" method="POST" class="d-none">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-block">
@@ -84,4 +90,3 @@
     </div>
 </div>
 @endsection
-

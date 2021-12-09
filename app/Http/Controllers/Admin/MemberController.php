@@ -8,7 +8,7 @@ use App\Models\Member;
 class MemberController extends Controller
 {
     public function index(){
-        $members = Member::latest()->paginate(10);
+        $members = Member::paginate(10);
         return view('admin.members.index',compact('members'));
     }
 
@@ -29,8 +29,16 @@ class MemberController extends Controller
 
     public function update(Member $member){
         $member->update($this->validateRequest());
+
         $this->storeImage($member);
+
         return redirect('/admin/members')->with('message','Member details updated successfully!');
+    }
+
+    public function destroy(Member $member){
+        $member->delete();
+        $this->removeImage($member->image);
+        return redirect('/admin/members')->with('message','Member deleted successfully!');
     }
 
     private function validateRequest()
@@ -52,6 +60,15 @@ class MemberController extends Controller
             $member->update([
                 'image' => request()->image->store('members', 'public'),
             ]);
+        }
+    }
+
+    private function removeImage($image){
+        if(!empty($image)){
+            $imagePath = 'storage/'.$image;
+            if(file_exists($imagePath)){
+                unlink($imagePath);
+            }
         }
     }
 }

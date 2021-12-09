@@ -19,6 +19,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('members/create',[MemberController::class,'store'])->name('members.store');
         Route::get('members/{member}/edit',[MemberController::class,'edit'])->name('members.edit');
         Route::patch('members/{member}/edit',[MemberController::class,'update'])->name('members.update');
+        Route::delete('members/{member}/delete',[MemberController::class,'destroy'])->name('members.destroy');
     });
 });
 
