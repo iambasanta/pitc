@@ -28,9 +28,14 @@ class MemberController extends Controller
     }
 
     public function update(Member $member){
+        $oldImage = $member->image;
         $member->update($this->validateRequest());
 
         $this->storeImage($member);
+
+        if($oldImage !== $member->image){
+            $this->removeImage($oldImage);
+        }
 
         return redirect('/admin/members')->with('message','Member details updated successfully!');
     }
