@@ -20,7 +20,7 @@ class MemberController extends Controller
         $member = Member::create($this->validateRequest());
 
         $this->storeImage($member);
-        return redirect('/admin/members')->with('message','New member added successfully!');
+        return redirect('/admin/members')->with('success','New member added successfully!');
     }
 
     public function edit(Member $member){
@@ -37,13 +37,13 @@ class MemberController extends Controller
             $this->removeImage($oldImage);
         }
 
-        return redirect('/admin/members')->with('message','Member details updated successfully!');
+        return redirect('/admin/members')->with('success','Member details updated successfully!');
     }
 
     public function destroy(Member $member){
         $member->delete();
         $this->removeImage($member->image);
-        return redirect('/admin/members')->with('message','Member deleted successfully!');
+        return redirect('/admin/members')->with('success','Member deleted successfully!');
     }
 
     private function validateRequest()

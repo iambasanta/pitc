@@ -32,11 +32,7 @@
                         <h4>All Members</h4>
                         <a href="{{route('members.create')}}" class="btn btn-success">Add Member</a>
                     </div>
-                    @if(session('message'))
-                    <div class="alert alert-light-success color-success mt-4">
-                        {{session('message')}}
-                    </div>
-                    @endif
+                    <x-util.flash/>
                 </div>
                 <div class="card-body">
                     <table class="table" id="">
