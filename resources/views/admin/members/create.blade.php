@@ -11,7 +11,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>General Admin</h3>
+                    <h3>Manage Members</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="page-content">
-        <form action="{{route('members.create')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('members.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <section class="row">
                 <div class="col-12 col-lg-8">
