@@ -56,7 +56,8 @@ class MemberController extends Controller
             'designation' => 'required',
             'batch' => 'required',
             'facebook' => 'required',
-            'linkedin'=>'nullable'
+            'linkedin'=>'nullable',
+            'testimonial'=>'nullable'
         ]);
     }
 
