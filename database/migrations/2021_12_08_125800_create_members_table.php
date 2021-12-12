@@ -22,6 +22,7 @@ class CreateMembersTable extends Migration
             $table->string('batch');
             $table->string('facebook');
             $table->string('linkedin')->nullable();
+            $table->text('testimonial')->nullable();
             $table->timestamps();
         });
     }

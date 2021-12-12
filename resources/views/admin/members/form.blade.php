@@ -72,6 +72,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="testimonial" class="mb-2">Testimonial</label>
+                            <textarea name="testimonial" class="form-control" id="" cols="10" rows="5">{{old('testimonial') ?? $member->testimonial}}</textarea>
+                        </div>
+
+                        <div class="form-group">
                             <button class="btn btn-primary mt-4">Save Member</button>
                         </div>
                     </div>
@@ -97,7 +102,7 @@
                             <span class="btn btn-outline-secondary btn-file">
                                 <span class="fileinput-new">Select image</span>
                                 <span class="fileinput-exists">Change</span>
-                                <input type="file" name="image" >
+                                <input type="file" name="image">
                             </span>
                             <a href="#" class="btn btn-outline-secondary fileinput-exists" data-dismiss="fileinput">Remove</a>
                         </div>
