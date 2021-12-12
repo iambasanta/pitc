@@ -8,12 +8,13 @@ use App\Models\Member;
 class MemberController extends Controller
 {
     public function index(){
-        $members = Member::paginate(10);
+        $members = Member::latest()->paginate(10);
         return view('admin.members.index',compact('members'));
     }
 
     public function create(){
-        return view('admin.members.create');
+        $member = new Member();
+        return view('admin.members.create',compact('member'));
     }
 
     public function store(){
@@ -51,7 +52,7 @@ class MemberController extends Controller
         return request()->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'image' => 'file|image|max:5000',
+            'image' => 'file|image|mimes:jpg,jpeg,png|max:5000',
             'designation' => 'required',
             'batch' => 'required',
             'facebook' => 'required',
