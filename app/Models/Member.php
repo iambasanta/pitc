@@ -13,10 +13,27 @@ class Member extends Model
         'name',
         'email',
         'image',
+        'type',
         'designation',
         'batch',
         'facebook',
         'linkedin',
         'testimonial'
     ];
+
+    protected $attributes = [
+        'type' => 0
+    ];
+
+    public function getTypeAttribute($attribute)
+    {
+        return $this->typeOptions()[$attribute];
+    }
+
+    public function typeOptions(){
+        return [
+            0 => 'General',
+            1 => 'Executive',
+        ];
+    }
 }

@@ -32,6 +32,17 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
+                                    <label for="type" class="mb-2">Type <span class="text-danger">*</span></label>
+                                    <select name="type" id="type" class="form-control">
+                                        <option value="" disabled>Select Member Type</option>
+                                        @foreach($member->typeOptions() as $typeOptionKey => $typeOptionValue)
+                                        <option value="{{$typeOptionKey}}" {{$member->type == $typeOptionValue ? 'selected' : ''}}>{{$typeOptionValue}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
                                     <label for="designation" class="mb-2">Designation <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control @error('designation') is-invalid @enderror" id="designation" value="{{old('designation') ?? $member->designation}}" name="designation" required>
                                     @error('designation')
@@ -41,21 +52,17 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="batch" class="mb-2">Batch <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control @error('batch') is-invalid @enderror" id="batch" value="{{old('batch') ?? $member->batch}}" name="batch" required>
-                                    @error('batch')
-                                    <span class="text-sm invalid-feedback">
-                                        <strong>{{$message}}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
                         </div>
 
+                        <div class="form-group">
+                            <label for="batch" class="mb-2">Batch <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('batch') is-invalid @enderror" id="batch" value="{{old('batch') ?? $member->batch}}" name="batch" required>
+                            @error('batch')
+                            <span class="text-sm invalid-feedback">
+                                <strong>{{$message}}</strong>
+                            </span>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <label for="facebook" class="mb-2">Facebook <span class="text-danger">*</span></label>
                             <input type="text" id="facebook" class="form-control @error('facebook') is-invalid @enderror" value="{{old('facebook') ?? $member->facebook}}" name="facebook" required>
@@ -73,7 +80,7 @@
 
                         <div class="form-group">
                             <label for="testimonial" class="mb-2">Testimonial</label>
-                            <textarea name="testimonial" class="form-control" id="" cols="10" rows="5">{{old('testimonial') ?? $member->testimonial}}</textarea>
+                            <textarea name="testimonial" class="form-control" id="" cols="10" rows="3">{{old('testimonial') ?? $member->testimonial}}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -88,7 +95,7 @@
         <div class="card">
             <div class="card-content ">
                 <div class="card-body">
-                    <h4 class="card-title mb-2">Image</h4>
+                    <h4 class="card-title mb-2">Image <span class="text-danger">*</span></h4>
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                         <div class="fileinput-new img-thumbnail fixed" style="width: 450px; height: 440px;">
                             @if($member->image)
@@ -102,7 +109,12 @@
                             <span class="btn btn-outline-secondary btn-file">
                                 <span class="fileinput-new">Select image</span>
                                 <span class="fileinput-exists">Change</span>
-                                <input type="file" name="image">
+                                <input type="file" name="image" class="@error('image') is-invalid @enderror" {{$member->image ? '' : 'required'}} >
+                                @error('image')
+                                <span class="text-sm invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                                @enderror
                             </span>
                             <a href="#" class="btn btn-outline-secondary fileinput-exists" data-dismiss="fileinput">Remove</a>
                         </div>

@@ -53,6 +53,7 @@ class MemberController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'image' => 'file|image|mimes:jpg,jpeg,png|max:5000',
+            'type' => 'required',
             'designation' => 'required',
             'batch' => 'required',
             'facebook' => 'required',

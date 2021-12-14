@@ -18,6 +18,7 @@ class CreateMembersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('image');
+            $table->integer('type');
             $table->string('designation');
             $table->string('batch');
             $table->string('facebook');
