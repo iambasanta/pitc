@@ -32,9 +32,14 @@
                         <h4>All Members</h4>
                         <a href="{{route('members.create')}}" class="btn btn-success">Add Member</a>
                     </div>
-                    <x-util.flash/>
+                    <x-util.flash />
                 </div>
                 <div class="card-body">
+                    @if(! $members->count())
+                    <div class="alert alert-light-danger color-danger">
+                        <strong>No records found!</strong>
+                    </div>
+                    @else
                     <table class="table" id="">
                         <thead>
                             <tr>
@@ -75,6 +80,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @endif
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
                             {{$members->links()}}
