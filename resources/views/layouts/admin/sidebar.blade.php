@@ -50,6 +50,21 @@
 
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
+                        <i class="bi bi-bookmark-star-fill"></i>
+                        <span>Categories</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="table.html">All Categories</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="create-blog.html">Create Category</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
                         <i class="bi bi-calendar-event-fill"></i>
                         <span>Events</span>
                     </a>
