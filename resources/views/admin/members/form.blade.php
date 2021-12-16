@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary mt-4">Save Member</button>
+                            <button class="btn btn-primary mt-4">{{$member->exists ? 'Update' : 'Create'}}</button>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                             <span class="btn btn-outline-secondary btn-file">
                                 <span class="fileinput-new">Select image</span>
                                 <span class="fileinput-exists">Change</span>
-                                <input type="file" name="image" class="@error('image') is-invalid @enderror" {{$member->image ? '' : 'required'}} >
+                                <input type="file" name="image" class="@error('image') is-invalid @enderror" {{$member->image ? '' : 'required'}}>
                                 @error('image')
                                 <span class="text-sm invalid-feedback">
                                     <strong>{{$message}}</strong>
