@@ -40,8 +40,13 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        if ($category->id === config('cms.default_category_id')) {
+            return redirect()->back()->with('error-message', 'You can not delete default category!');
+        }
+
         $category->delete();
-        return redirect()->route('categories.index')->with('success','Category deleted successfully!');
+
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
     }
 
     protected function validateRequest($request, ?Category $category = null){
