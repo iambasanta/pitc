@@ -16,6 +16,12 @@ class Post extends Model
         'excerpt',
         'body',
         'image',
+        'author',
         'published_at'
-    ]; 
+    ];
+
+    public function category()
+    {
+        return  $this->belongsTo(Category::class);
+    }
 }

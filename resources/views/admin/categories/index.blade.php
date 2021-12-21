@@ -62,8 +62,7 @@
                                     </form>
                                 </td>
                                 <td>{{$category->title}}</td>
-                                <td>5</td>
-                                {{-- <td>{{$category->posts->count()}}</td> --}}
+                                <td>{{$category->posts->count()}}</td> 
                             </tr>
                             @endforeach
                         </tbody>
