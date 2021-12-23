@@ -21,6 +21,7 @@
     });
 
     //date-time picker
-    flatpickr("#published_at", {});
+    $("#published_at").flatpickr();
+
 </script>
 @endsection

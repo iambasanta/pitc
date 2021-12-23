@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    protected $uploadPath;
+    protected $limit = 10;
 
+    protected $uploadPath;
     public function __construct()
     {
        $this->uploadPath = public_path('posts');
@@ -19,7 +20,8 @@ class PostController extends Controller
 
     public function index()
     {
-        return 'here';
+        $posts = Post::with('category')->latest()->paginate($this->limit);
+        return view('admin.posts.index', compact('posts'));
     }
 
     public function create()

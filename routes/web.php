@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\PostController;
 
 // routes for admin
 Route::group(['prefix'=>'admin'],function(){
@@ -18,6 +19,8 @@ Route::group(['prefix'=>'admin'],function(){
         Route::resource('members',MemberController::class)->except('show');
 
         Route::resource('categories',CategoryController::class)->except('show');
+
+        Route::resource('posts',PostController::class);
     });
 });
 

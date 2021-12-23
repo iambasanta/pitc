@@ -34,16 +34,16 @@
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
+                    <a href="{{route('posts.index')}}" class='sidebar-link'>
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <span>Blogs</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="table.html">All Blogs</a>
+                            <a href="{{route('posts.index')}}">All Blogs</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="create-blog.html">Create Blog</a>
+                            <a href="{{route('posts.create')}}">Create Blog</a>
                         </li>
                     </ul>
                 </li>
