@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -40,6 +41,8 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        Post::where('category_id',$category->id)->update(['category_id'=> config('cms.default_category_id')]);
+
         if ($category->id === config('cms.default_category_id')) {
             return redirect()->back()->with('error-message', 'You can not delete default category!');
         }
