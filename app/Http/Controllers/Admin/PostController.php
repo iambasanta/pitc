@@ -13,6 +13,7 @@ class PostController extends Controller
     protected $limit = 10;
 
     protected $uploadPath;
+
     public function __construct()
     {
        $this->uploadPath = public_path('posts');
@@ -40,19 +41,25 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with('success','New post created successfully!');
     }
 
-    public function show(Post $post)
-    {
-        //
-    }
-
     public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        return view('admin.posts.edit',compact('post','categories'));
     }
 
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $data = $this->handleRequest($request);
+
+        $oldImage = $post->image;
+
+        $post->update($data);
+
+        if($oldImage !== $post->image){
+            $this->removeImage($oldImage);
+        }
+
+        return redirect()->route('posts.index')->with('success','Post edited successfully!');
     }
 
     public function destroy(Post $post)
@@ -74,5 +81,12 @@ class PostController extends Controller
         }
 
         return $data;
+    }
+
+    private function removeImage($image){
+        if(!empty($image)){
+            $imagePath = $this->uploadPath.'/'.$image;
+            if(file_exists($imagePath)) unlink($imagePath);
+        }
     }
 }

@@ -41,4 +41,15 @@ class Post extends Model
             return '<span class="badge bg-light-success">Published</span>';
         }
     }
+
+    public function getImageUrlAttribute($value){
+        $imageUrl = "";
+
+        if(!is_null($this->image)){
+            $imagePath = public_path()."/posts/".$this->image;
+            if(file_exists($imagePath)) $imageUrl = asset("posts/".$this->image);
+        }
+
+        return $imageUrl;
+    }
 }

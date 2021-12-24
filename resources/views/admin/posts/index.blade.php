@@ -1,5 +1,5 @@
 @extends('layouts.admin.main')
-@section('title','PITC | Posts')
+@section('title','PITC | Blogs')
 @section('content')
 <div id="main">
     <header class="mb-3">
@@ -11,12 +11,12 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Manage Posts</h3>
+                    <h3>Manage Blogs</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('posts.index')}}">Posts</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('posts.index')}}">Blogs</a></li>
                             <li class="breadcrumb-item active" aria-current="page">All</li>
                         </ol>
                     </nav>
@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h4>All Posts</h4>
+                        <h4>All Blogs</h4>
                         <a href="{{route('posts.create')}}" class="btn btn-success">Add New</a>
                     </div>
                     <x-util.flash />
