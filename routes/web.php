@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
 
 // routes for admin
 Route::group(['prefix'=>'admin'],function(){
@@ -15,6 +16,8 @@ Route::group(['prefix'=>'admin'],function(){
 
     Route::group(['middleware'=>'auth'],function(){
         Route::get('/',[HomeController::class,'index'])->name('admin.home')->middleware('PreventBackToHistory');
+
+        Route::resource('users',UserController::class);
 
         Route::resource('members',MemberController::class)->except('show');
 

@@ -18,19 +18,12 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-person-fill"></i>
-                        <span>Admins</span>
+
+                <li class="sidebar-item ">
+                    <a href="{{route('users.index')}}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Admin Users</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="#">All Admins</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="#">Add Admin</a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li class="sidebar-item  has-sub">
