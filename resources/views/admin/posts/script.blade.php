@@ -20,8 +20,15 @@
         element: $("#body")[0]
     });
 
-    //date-time picker
+    // date-time picker
     $("#published_at").flatpickr();
+
+    // save draft
+    $('#save-draft').click(function(e){
+        e.preventDefault();
+        $('#published_at').val("");
+        $('#post-form').submit();
+    });
 
 </script>
 @endsection

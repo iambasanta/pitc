@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="page-content">
-        <form action="{{route('posts.update',$post->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('posts.update',$post->id)}}" method="POST" enctype="multipart/form-data" id="post-form">
             @csrf
             @method('PATCH')
 

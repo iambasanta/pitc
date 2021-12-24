@@ -32,7 +32,7 @@ class PostRequest extends FormRequest
             'body'=>'required',
             'image'=>'mimes:jpeg,jpg,png,bmp',
             'author'=>'required',
-            'published_at'=>'date_format:Y-m-d',
+            'published_at'=>'nullable|date_format:Y-m-d',
         ];
     }
 }

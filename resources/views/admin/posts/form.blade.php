@@ -78,7 +78,7 @@
                         @enderror
                     </div>
                     <div class="mt-4 d-flex justify-content-between">
-                        <a href="#" class="btn btn-light-primary">Save Draft</a>
+                        <a href="#" class="btn btn-light-primary" id="save-draft">Save Draft</a>
                         <button class="btn btn-primary" type="submit">Publish</button>
                     </div>
                 </div>
