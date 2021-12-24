@@ -20,6 +20,8 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::resource('categories',CategoryController::class)->except('show');
 
+        Route::patch('posts/restore/{post}',[PostController::class,'restore'])->name('posts.restore');
+        Route::delete('posts/force-destroy/{post}',[PostController::class,'forceDestroy'])->name('posts.force-destroy');
         Route::resource('posts',PostController::class);
     });
 });

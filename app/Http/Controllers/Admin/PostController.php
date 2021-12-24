@@ -19,16 +19,25 @@ class PostController extends Controller
        $this->uploadPath = public_path('posts');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('category')->latest()->paginate($this->limit);
-        return view('admin.posts.index', compact('posts'));
+        if(($status = $request->get('status')) && $status == 'trash'){
+            $posts = Post::onlyTrashed()->with('category')->latest()->paginate($this->limit);
+            $onlyTrashed = TRUE;
+        }else{
+            $posts = Post::with('category')->latest()->paginate($this->limit);
+            $onlyTrashed = FALSE;
+        }
+
+        return view('admin.posts.index', compact('posts','onlyTrashed'));
     }
 
     public function create()
     {
         $post = new Post();
+
         $categories = Category::all();
+
         return view('admin.posts.create',compact('post','categories'));
     }
 
@@ -44,6 +53,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
+        
         return view('admin.posts.edit',compact('post','categories'));
     }
 
@@ -65,8 +75,26 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+
+        return redirect()->route('posts.index')->with('trash-message',['Post moved to Trash!',$post->id]);
+    }
+
+    public function forceDestroy($id){
+        $post = Post::withTrashed()->findOrFail($id);
+
+        $post->forceDelete();
+
         $this->removeImage($post->image);
-        return redirect()->route('posts.index')->with('success','Post deleted successfully!');
+
+        return redirect()->back()->with('success','Post deleted successfully!');
+    }
+
+    public function restore($id){
+       $post = Post::withTrashed()->findOrFail($id);
+
+       $post->restore();
+
+        return redirect()->back()->with('success','Post has been restored!');
     }
 
     protected function handleRequest($request){
@@ -88,7 +116,9 @@ class PostController extends Controller
     private function removeImage($image){
         if(!empty($image)){
             $imagePath = $this->uploadPath.'/'.$image;
+
             if(file_exists($imagePath)) unlink($imagePath);
         }
     }
+
 }

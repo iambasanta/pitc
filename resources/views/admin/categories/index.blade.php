@@ -53,7 +53,7 @@
                             <tr>
                                 <td>
                                     <a href="{{route('categories.edit',$category->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" class="p-2 text-danger" onclick="event.preventDefault();alert('Are you sure ?');document.getElementById('delete-form-{{$category->id}}').submit();">
+                                    <a href="#" class="p-2 text-danger" onclick="event.preventDefault();confirm('Are you sure ?');document.getElementById('delete-form-{{$category->id}}').submit();">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                     <form id="delete-form-{{$category->id}}" action="{{route('categories.destroy',$category->id)}}" method="POST" class="d-none">
