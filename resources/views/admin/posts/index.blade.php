@@ -60,6 +60,7 @@
                                     </a>
                                     <form id="delete-form-{{$post->id}}" action="{{route('posts.destroy',$post->id)}}" method="POST" class="d-none">
                                         @csrf
+
                                         @method('DELETE')
                                     </form>
                                 </td>
@@ -69,9 +70,7 @@
                                 <td>{{$post->author}}</td>
                                 <td>{{$post->category->title}}</td>
                                 <td>
-                                    {{$post->dateFormatted()}}
-                                    |
-                                    {!! $post->publicationStatus() !!}
+                                    {{$post->dateFormatted()}} | {!! $post->publicationStatus() !!}
                                 </td>
                             </tr>
                             @endforeach

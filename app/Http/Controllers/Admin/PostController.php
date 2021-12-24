@@ -64,7 +64,9 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        $this->removeImage($post->image);
+        return redirect()->route('posts.index')->with('success','Post deleted successfully!');
     }
 
     protected function handleRequest($request){
