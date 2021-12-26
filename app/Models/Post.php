@@ -38,7 +38,7 @@ class Post extends Model
         if (!$this->published_at) {
             return '<span class="badge bg-light-warning">Draft</span>';
         }elseif($this->published_at && ($this->published_at->isFuture())){
-            return '<span class="badge bg-light-info">Schedule</span>';
+            return '<span class="badge bg-light-info">Scheduled</span>';
         }
         else {
             return '<span class="badge bg-light-success">Published</span>';
