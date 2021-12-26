@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\PostController;
@@ -26,6 +27,8 @@ Route::group(['prefix'=>'admin'],function(){
         Route::patch('posts/restore/{post}',[PostController::class,'restore'])->name('posts.restore');
         Route::delete('posts/force-destroy/{post}',[PostController::class,'forceDestroy'])->name('posts.force-destroy');
         Route::resource('posts',PostController::class);
+
+        Route::resource('events',EventController::class)->except('show');
     });
 });
 

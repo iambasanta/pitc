@@ -49,16 +49,16 @@
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
+                    <a href="{{route('events.index')}}" class='sidebar-link'>
                         <i class="bi bi-calendar-event-fill"></i>
                         <span>Events</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="#">All Events</a>
+                            <a href="{{route('events.index')}}">All Events</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">Add Event</a>
+                            <a href="{{route('events.create')}}">Create Event</a>
                         </li>
                     </ul>
                 </li>
