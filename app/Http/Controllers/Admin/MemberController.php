@@ -21,7 +21,7 @@ class MemberController extends Controller
         $member = Member::create($this->validateRequest());
 
         $this->storeImage($member);
-        return redirect()->route('members.index')->with('success','New member added successfully!');
+        return redirect()->route('admin.members.index')->with('success','New member added successfully!');
     }
 
     public function edit(Member $member){
@@ -38,13 +38,13 @@ class MemberController extends Controller
             $this->removeImage($oldImage);
         }
 
-        return redirect()->route('members.index')->with('success','Member details updated successfully!');
+        return redirect()->route('admin.members.index')->with('success','Member details updated successfully!');
     }
 
     public function destroy(Member $member){
         $member->delete();
         $this->removeImage($member->image);
-        return redirect()->route('members.index')->with('success','Member deleted successfully!');
+        return redirect()->route('admin.members.index')->with('success','Member deleted successfully!');
     }
 
     private function validateRequest()

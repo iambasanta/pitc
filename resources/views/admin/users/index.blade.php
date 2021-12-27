@@ -16,7 +16,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('users.index')}}">Admins</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.users.index')}}">Admins</a></li>
                             <li class="breadcrumb-item active" aria-current="page">All</li>
                         </ol>
                     </nav>
@@ -30,7 +30,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <h4>All Admin Users</h4>
-                        <a href="{{route('users.create')}}" class="btn btn-success">Add New</a>
+                        <a href="{{route('admin.users.create')}}" class="btn btn-success">Add New</a>
                     </div>
                     <x-util.flash />
                 </div>
@@ -52,11 +52,11 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>
-                                    <a href="{{route('users.edit',$user->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="{{route('admin.users.edit',$user->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
                                     <a href="#" class="p-2 text-danger" onclick="event.preventDefault();confirm('Are you sure ?');document.getElementById('delete-form-{{$user->id}}').submit();">
                                         <i class="bi bi-trash"></i>
                                     </a>
-                                    <form id="delete-form-{{$user->id}}" action="{{route('users.destroy',$user->id)}}" method="POST" class="d-none">
+                                    <form id="delete-form-{{$user->id}}" action="{{route('admin.users.destroy',$user->id)}}" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
                                     </form>

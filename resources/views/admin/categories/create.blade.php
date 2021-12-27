@@ -16,7 +16,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Categories</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.categories.index')}}">Categories</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Add</li>
                         </ol>
                     </nav>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="page-content">
-        <form action="{{route('categories.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.categories.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
             @include('admin.categories.form')

@@ -20,60 +20,60 @@
                 </li>
 
                 <li class="sidebar-item ">
-                    <a href="{{route('users.index')}}" class='sidebar-link'>
+                    <a href="{{route('admin.users.index')}}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Admin Users</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a href="{{route('posts.index')}}" class='sidebar-link'>
+                    <a href="{{route('admin.posts.index')}}" class='sidebar-link'>
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <span>Blogs</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="{{route('posts.index')}}">All Blogs</a>
+                            <a href="{{route('admin.posts.index')}}">All Blogs</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{route('posts.create')}}">Create Blog</a>
+                            <a href="{{route('admin.posts.create')}}">Create Blog</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="sidebar-item ">
-                    <a href="{{route('categories.index')}}" class='sidebar-link'>
+                    <a href="{{route('admin.categories.index')}}" class='sidebar-link'>
                         <i class="bi bi-bookmark-star-fill"></i>
                         <span>Categories</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a href="{{route('events.index')}}" class='sidebar-link'>
+                    <a href="{{route('admin.events.index')}}" class='sidebar-link'>
                         <i class="bi bi-calendar-event-fill"></i>
                         <span>Events</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="{{route('events.index')}}">All Events</a>
+                            <a href="{{route('admin.events.index')}}">All Events</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{route('events.create')}}">Create Event</a>
+                            <a href="{{route('admin.events.create')}}">Create Event</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a href="{{route('members.index')}}" class='sidebar-link'>
+                    <a href="{{route('admin.members.index')}}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Members</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="{{route('members.index')}}">All Members</a>
+                            <a href="{{route('admin.members.index')}}">All Members</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{route('members.create')}}">Add Member</a>
+                            <a href="{{route('admin.members.create')}}">Add Member</a>
                         </li>
                     </ul>
                 </li>

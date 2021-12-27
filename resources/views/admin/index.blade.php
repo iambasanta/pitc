@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">
-                                            <a href="{{route('users.index')}}">Admin Users</a>
+                                            <a href="{{route('admin.users.index')}}">Admin Users</a>
                                         </h6>
                                         <h6 class="font-extrabold mb-0">{{$adminUsers->count()}}</h6>
                                     </div>
@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">
-                                            <a href="{{route('posts.index')}}">Blog Posts</a>
+                                            <a href="{{route('admin.posts.index')}}">Blog Posts</a>
                                         </h6>
                                         <h6 class="font-extrabold mb-0">{{$blogPosts->count()}}</h6>
                                     </div>
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">
-                                            <a href="{{route('events.index')}}">Events</a>
+                                            <a href="{{route('admin.events.index')}}">Events</a>
                                         </h6>
                                         <h6 class="font-extrabold mb-0">{{$events->count()}}</h6>
                                     </div>
@@ -96,7 +96,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">
-                                            <a href="{{route('members.index')}}">Club Members</a>
+                                            <a href="{{route('admin.members.index')}}">Club Members</a>
                                         </h6>
                                         <h6 class="font-extrabold mb-0">{{$members->count()}}</h6>
                                     </div>

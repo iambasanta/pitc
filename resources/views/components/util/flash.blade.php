@@ -10,7 +10,7 @@
     <div class="d-flex justify-content-between text-center">
         {{$message}}
 
-        <form action="{{route('posts.restore',$postId)}}" method="POST">
+        <form action="{{route('admin.posts.restore',$postId)}}" method="POST">
             @csrf
 
             @method('PATCH')

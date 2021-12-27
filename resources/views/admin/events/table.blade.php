@@ -12,11 +12,11 @@
         @foreach($events as $event)
         <tr>
             <td>
-                <a href="{{route('events.edit',$event->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
-                <a href="#" class="p-2 text-danger" onclick="event.preventDefault();confirm('Move this post to trash?');document.getElementById('delete-form-{{$event->id}}').submit();">
+                <a href="{{route('admin.events.edit',$event->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
+                <a href="#" class="p-2 text-danger" onclick="event.preventDefault();confirm('Delete event?');document.getElementById('delete-form-{{$event->id}}').submit();">
                     <i class="bi bi-trash"></i>
                 </a>
-                <form id="delete-form-{{$event->id}}" action="{{route('events.destroy',$event->id)}}" method="POST" class="d-none">
+                <form id="delete-form-{{$event->id}}" action="{{route('admin.events.destroy',$event->id)}}" method="POST" class="d-none">
                     @csrf
 
                     @method('DELETE')

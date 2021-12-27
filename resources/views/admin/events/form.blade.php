@@ -88,7 +88,7 @@
                     </div>
                     <div class="mt-4 d-flex justify-content-between">
                         <button class="btn btn-primary" type="submit">{{ $event->exists ? 'Update Event' : 'Create Event'}}</button>
-                        <a href="{{route('events.index')}}" class="btn btn-light-primary" >Cancel</a>
+                        <a href="{{route('admin.events.index')}}" class="btn btn-light-primary" >Cancel</a>
                     </div>
                 </div>
             </div>

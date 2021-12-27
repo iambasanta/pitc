@@ -26,7 +26,7 @@ class UserController extends Controller
     {
         User::create($this->validateRequest($request));
 
-        return redirect()->route('users.index')->with('success','New admin user added successfully!');
+        return redirect()->route('admin.users.index')->with('success','New admin user added successfully!');
     }
 
     public function edit(User $user)
@@ -37,13 +37,13 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update($this->validateRequest($request,$user));
-        return redirect()->route('users.index')->with('success','Admin user updated successfully!');
+        return redirect()->route('admin.users.index')->with('success','Admin user updated successfully!');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index')->with('success','Admin user deleted successfully!');
+        return redirect()->route('admin.users.index')->with('success','Admin user deleted successfully!');
     }
 
     private function validateRequest($request, ?User $user = null){

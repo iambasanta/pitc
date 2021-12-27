@@ -47,7 +47,7 @@ class PostController extends Controller
 
         Post::create($data);
 
-        return redirect()->route('posts.index')->with('success','New post created successfully!');
+        return redirect()->route('admin.posts.index')->with('success','New post created successfully!');
     }
 
     public function edit(Post $post)
@@ -69,14 +69,14 @@ class PostController extends Controller
             $this->removeImage($oldImage);
         }
 
-        return redirect()->route('posts.index')->with('success','Post edited successfully!');
+        return redirect()->route('admin.posts.index')->with('success','Post edited successfully!');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
 
-        return redirect()->route('posts.index')->with('trash-message',['Post moved to Trash!',$post->id]);
+        return redirect()->route('admin.posts.index')->with('trash-message',['Post moved to Trash!',$post->id]);
     }
 
     public function forceDestroy($id){

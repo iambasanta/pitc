@@ -30,7 +30,7 @@
                         <button class="btn btn-primary mt-4">{{$category->exists ? 'Update' : 'Create'}}</button>
                     </div>
                     <div class="form-group">
-                        <a href="{{route('categories.index')}}" class="btn btn-outline-secondary mt-4">Cancel</a>
+                        <a href="{{route('admin.categories.index')}}" class="btn btn-outline-secondary mt-4">Cancel</a>
                     </div>
                 </div>
             </div>

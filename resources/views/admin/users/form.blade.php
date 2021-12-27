@@ -50,7 +50,7 @@
                         <button class="btn btn-primary mt-4">{{$user->exists ? 'Update' : 'Create'}}</button>
                     </div>
                     <div class="form-group">
-                        <a href="{{route('users.index')}}" class="btn btn-outline-secondary mt-4">Cancel</a>
+                        <a href="{{route('admin.users.index')}}" class="btn btn-outline-secondary mt-4">Cancel</a>
                     </div>
                 </div>
             </div>

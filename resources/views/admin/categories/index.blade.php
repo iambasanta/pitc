@@ -16,7 +16,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Categories</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.categories.index')}}">Categories</a></li>
                             <li class="breadcrumb-item active" aria-current="page">All</li>
                         </ol>
                     </nav>
@@ -30,7 +30,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <h4>All Categories</h4>
-                        <a href="{{route('categories.create')}}" class="btn btn-success">Add New</a>
+                        <a href="{{route('admin.categories.create')}}" class="btn btn-success">Add New</a>
                     </div>
                     <x-util.flash />
                 </div>
@@ -52,11 +52,11 @@
                             @foreach($categories as $category)
                             <tr>
                                 <td>
-                                    <a href="{{route('categories.edit',$category->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="{{route('admin.categories.edit',$category->id)}}" class="p-2 text-success"><i class="bi bi-pencil-square"></i></a>
                                     <a href="#" class="p-2 text-danger" onclick="event.preventDefault();confirm('Are you sure ?');document.getElementById('delete-form-{{$category->id}}').submit();">
                                         <i class="bi bi-trash"></i>
                                     </a>
-                                    <form id="delete-form-{{$category->id}}" action="{{route('categories.destroy',$category->id)}}" method="POST" class="d-none">
+                                    <form id="delete-form-{{$category->id}}" action="{{route('admin.categories.destroy',$category->id)}}" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
                                     </form>

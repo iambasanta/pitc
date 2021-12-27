@@ -16,7 +16,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('events.index')}}">Events</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.events.index')}}">Events</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit</li>
                         </ol>
                     </nav>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="page-content">
-        <form action="{{route('events.update',$event->id)}}" method="POST" enctype="multipart/form-data" id="post-form">
+        <form action="{{route('admin.events.update',$event->id)}}" method="POST" enctype="multipart/form-data" id="post-form">
             @csrf
 
             @method('PATCH')

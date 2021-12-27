@@ -85,7 +85,7 @@
 
                         <div class="mt-4 d-flex justify-content-between">
                             <button class="btn btn-primary">{{$member->exists ? 'Update' : 'Create'}}</button>
-                            <a href="{{route('members.index')}}" class="btn btn-light-primary">Cancel</a>
+                            <a href="{{route('admin.members.index')}}" class="btn btn-light-primary">Cancel</a>
                         </div>
                     </div>
                 </div>

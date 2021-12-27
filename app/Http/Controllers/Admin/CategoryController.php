@@ -25,7 +25,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         Category::create($this->validateRequest($request));
-        return redirect()->route('categories.index')->with('success','New category added successfully!');
+        return redirect()->route('admin.categories.index')->with('success','New category added successfully!');
     }
 
     public function edit(Category $category)
@@ -36,7 +36,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($this->validateRequest($request,$category));
-        return redirect()->route('categories.index')->with('success','Category updated successfully!');
+        return redirect()->route('admin.categories.index')->with('success','Category updated successfully!');
     }
 
     public function destroy(Category $category)
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
+        return redirect()->route('admin.categories.index')->with('success', 'Category deleted successfully!');
     }
 
     protected function validateRequest($request, ?Category $category = null){
