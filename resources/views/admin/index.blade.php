@@ -38,8 +38,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Admins</h6>
-                                        <h6 class="font-extrabold mb-0">10</h6>
+                                        <h6 class="text-muted font-semibold">
+                                            <a href="{{route('users.index')}}">Admin Users</a>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0">{{$adminUsers->count()}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +57,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Blogs</h6>
-                                        <h6 class="font-extrabold mb-0">10</h6>
+                                        <h6 class="text-muted font-semibold">
+                                            <a href="{{route('posts.index')}}">Blog Posts</a>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0">{{$blogPosts->count()}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -72,8 +76,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Events</h6>
-                                        <h6 class="font-extrabold mb-0">10</h6>
+                                        <h6 class="text-muted font-semibold">
+                                            <a href="{{route('events.index')}}">Events</a>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0">{{$events->count()}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -89,8 +95,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Members</h6>
-                                        <h6 class="font-extrabold mb-0">80</h6>
+                                        <h6 class="text-muted font-semibold">
+                                            <a href="{{route('members.index')}}">Club Members</a>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0">{{$members->count()}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -102,4 +110,3 @@
     </div>
 </div>
 @endsection
-

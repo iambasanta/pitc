@@ -30,7 +30,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <h4>All Categories</h4>
-                        <a href="{{route('categories.create')}}" class="btn btn-success">Add Category</a>
+                        <a href="{{route('categories.create')}}" class="btn btn-success">Add New</a>
                     </div>
                     <x-util.flash />
                 </div>

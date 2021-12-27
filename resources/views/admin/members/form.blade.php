@@ -83,8 +83,9 @@
                             <textarea name="testimonial" class="form-control" id="" cols="10" rows="3">{{old('testimonial') ?? $member->testimonial}}</textarea>
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-primary mt-4">{{$member->exists ? 'Update' : 'Create'}}</button>
+                        <div class="mt-4 d-flex justify-content-between">
+                            <button class="btn btn-primary">{{$member->exists ? 'Update' : 'Create'}}</button>
+                            <a href="{{route('members.index')}}" class="btn btn-light-primary">Cancel</a>
                         </div>
                     </div>
                 </div>
