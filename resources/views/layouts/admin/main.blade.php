@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@yield('title','PITC')</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('backend/images/logo/favicon.ico')}}">
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('backend/css/bootstrap.css')}}">
