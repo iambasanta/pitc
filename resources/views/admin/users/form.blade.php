@@ -27,7 +27,7 @@
 
                 <div class="form-group">
                     <label for="password" class="mb-2">Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{old('password')}}" required>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{old('password')}}" >
                     @error('password')
                     <span class="text-sm invalid-feedback">
                         <strong>{{$message}}</strong>
@@ -37,7 +37,7 @@
 
                 <div class="form-group">
                     <label for="password_confirmation" class="mb-2">Confirm Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation"required>
+                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
                     @error('password_confirmation')
                     <span class="text-sm invalid-feedback">
                         <strong>{{$message}}</strong>
