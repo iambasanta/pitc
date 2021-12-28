@@ -20,9 +20,13 @@
     $("#published_at").flatpickr();
 
     $("#date").flatpickr({
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
+        dateFormat: "Y-m-d",
+    });
 
+    $('#time').flatpickr({
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
     });
 </script>
 @endsection

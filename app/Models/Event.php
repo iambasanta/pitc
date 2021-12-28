@@ -17,13 +17,18 @@ class Event extends Model
         'image',
         'address',
         'date',
+        'time',
         'published_at'
     ];
 
-    protected $dates = ['date','published_at'];
+    protected $dates = ['date','time','published_at'];
 
     public function dateFormatted(){
         return $this->date->format("d/m/Y");
+    }
+
+    public function timeFormatted(){
+        return $this->time->format("H:i A");
     }
 
     public function getImageUrlAttribute(){

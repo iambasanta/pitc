@@ -5,6 +5,7 @@
             <th>Title</th>
             <th>Address</th>
             <th>Event Date</th>
+            <th>Event Time</th>
             <th>Status</th>
         </tr>
     </thead>
@@ -30,6 +31,9 @@
             </td>
             <td>
                 {{$event->dateFormatted()}}
+            </td>
+            <td>
+                {{$event->timeFormatted()}}
             </td>
             <td>
                 {!! $event->eventStatus() !!}

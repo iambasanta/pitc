@@ -30,7 +30,8 @@ class EventRequest extends FormRequest
             'description'=>'required',
             'image'=>'mimes:jpeg,jpg,png,bmp',
             'address'=>'required',
-            'date'=>'required|date_format:Y-m-d H:i',
+            'date'=>'required|date_format:Y-m-d',
+            'time'=>'required|date_format:H:i',
             'published_at'=>'required|date_format:Y-m-d',
         ];
     }

@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="form-group mb-2">
                             <label for="title" class="mb-2">Title</label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Title" name="title" value="{{old('title') ?? $event->title}}" >
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Title" name="title" value="{{old('title') ?? $event->title}}">
                             @error('title')
                             <span class="text-sm invalid-feedback">
                                 <strong>{{$message}}</strong>
@@ -20,7 +20,7 @@
 
                         <div class="form-group mb-2">
                             <label for="slug" class="mb-2">Slug</label>
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{old('slug') ?? $event->slug}}" >
+                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{old('slug') ?? $event->slug}}">
                             @error('slug')
                             <span class="text-sm invalid-feedback">
                                 <strong>{{$message}}</strong>
@@ -30,7 +30,7 @@
 
                         <div class="form-group mb-2">
                             <label for="address" class="mb-2">Address</label>
-                            <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Address" name="address" value="{{old('address') ?? $event->address}}" >
+                            <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Address" name="address" value="{{old('address') ?? $event->address}}">
                             @error('address')
                             <span class="text-sm invalid-feedback">
                                 <strong>{{$message}}</strong>
@@ -56,17 +56,33 @@
 
         <div class="card">
             <div class="card-content">
+
                 <div class="card-header">
-                    <h3 class="card-title">Date</h3>
+                    <h3 class="card-title">Date and Time</h3>
                 </div>
                 <div class="card-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control @error('date') is-invalid @enderror" id="date" value="{{old('date') ?? $event->date}}" placeholder="Y-m-d H:i" name="date">
-                        @error('date')
-                        <span class="text-sm invalid-feedback">
-                            <strong>{{$message}}</strong>
-                        </span>
-                        @enderror
+                    <div class="d-flex justify-content-between">
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control @error('date') is-invalid @enderror" id="date" value="{{old('date') ?? $event->date}}" placeholder="Y-m-d" name="date">
+                                @error('date')
+                                <span class="text-sm invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control @error('time') is-invalid @enderror" id="time" value="{{old('time') ?? $event->time}}" placeholder="H:i" name="time">
+                                @error('time')
+                                <span class="text-sm invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -88,7 +104,7 @@
                     </div>
                     <div class="mt-4 d-flex justify-content-between">
                         <button class="btn btn-primary" type="submit">{{ $event->exists ? 'Update Event' : 'Create Event'}}</button>
-                        <a href="{{route('admin.events.index')}}" class="btn btn-light-primary" >Cancel</a>
+                        <a href="{{route('admin.events.index')}}" class="btn btn-light-primary">Cancel</a>
                     </div>
                 </div>
             </div>
