@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -43,6 +42,10 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        if ($user->id === config('cms.default_user_id')) {
+            return redirect()->back()->with('error-message', 'You can not delete default admin user or yourself!');
+        }
+
         $user->delete();
         return redirect()->route('admin.users.index')->with('success','Admin user deleted successfully!');
     }
