@@ -18,6 +18,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('PreventBackToHistory');
 
+        Route::get('/profile',[HomeController::class,'edit'])->name('profile.edit');
+        Route::patch('/profile',[HomeController::class,'update'])->name('profile.update');
+
         Route::resource('users', UserController::class);
 
         Route::resource('members', MemberController::class)->except('show');

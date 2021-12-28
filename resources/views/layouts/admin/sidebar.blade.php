@@ -78,7 +78,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="{{route('admin.profile.edit')}}" class="sidebar-link">
                         <i class="bi bi-person-circle"></i>
                         <span>Profile</span>
                     </a>
