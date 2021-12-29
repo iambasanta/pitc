@@ -95,7 +95,7 @@
                         <select name="category_id" class="form-control @error('category_id') is-invalid @enderror">
                             <option value="" class="disabled">Select Category</option>
                             @foreach($categories as $category)
-                            <option value="{{$category->id}}" {{old('category_id' == $category->id ? 'selected' : '')}}>{{$category->title}}</option>
+                            <option value="{{$category->id}}" {{$post->category_id === $category->id ? 'selected' : ''}}>{{$category->title}}</option>
                             @endforeach
                         </select>
                         @error('category_id')
