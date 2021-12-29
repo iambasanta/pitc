@@ -18,8 +18,13 @@ class Event extends Model
         'address',
         'date',
         'time',
-        'published_at'
+        'published_at',
+        'event_category_id',
     ];
+
+    public function eventCategory(){
+        return $this->belongsTo(EventCategory::class);
+    }
 
     protected $dates = ['date','time','published_at'];
 

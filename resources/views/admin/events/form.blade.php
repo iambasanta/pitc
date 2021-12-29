@@ -56,6 +56,30 @@
 
         <div class="card">
             <div class="card-content">
+                <div class="card-header">
+                    <h4 class="card-title">Event Category</h4>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <select name="event_category_id" class="form-control @error('event_category_id') is-invalid @enderror">
+                            <option value="" class="disabled">Select Category</option>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}" {{($event->event_category_id === $category->id) ? ' selected' : ''}}> {{$category->title}} </option>
+                            @endforeach
+                        </select>
+                        @error('event_category_id')
+                        <span class="text-sm invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
 
                 <div class="card-header">
                     <h3 class="card-title">Date and Time</h3>

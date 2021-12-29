@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EventRequest;
 use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -34,8 +35,9 @@ class EventController extends Controller
     public function create()
     {
         $event = new Event();
+        $categories = EventCategory::orderBy('title')->get();
 
-        return view('admin.events.create',compact('event'));
+        return view('admin.events.create',compact('event','categories'));
     }
 
     public function store(EventRequest $request)
@@ -49,7 +51,9 @@ class EventController extends Controller
 
     public function edit(Event $event)
     {
-        return view('admin.events.edit',compact('event'));
+        $categories = EventCategory::orderBy('title')->get();
+
+        return view('admin.events.edit',compact('event','categories'));
     }
 
     public function update(EventRequest $request, Event $event)

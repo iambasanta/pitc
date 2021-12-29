@@ -25,6 +25,7 @@ class EventRequest extends FormRequest
     public function rules()
     {
         return [
+            'event_category_id'=>'required',
             'title'=>'required',
             'slug'=>['required',Rule::unique('events','slug')->ignore($this->event)],
             'description'=>'required',

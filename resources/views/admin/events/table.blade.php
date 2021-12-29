@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>Action</th>
+            <th>Category</th>
             <th>Title</th>
             <th>Address</th>
             <th>Event Date</th>
@@ -22,6 +23,9 @@
 
                     @method('DELETE')
                 </form>
+            </td>
+            <td>
+                {{$event->eventCategory->title}}
             </td>
             <td>
                 {{$event->title}}
