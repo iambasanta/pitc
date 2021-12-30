@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group mb-2">
-                            <label for="title" class="mb-2">Title</label>
+                            <label for="title" class="mb-2">Title  <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Title" name="title" value="{{old('title') ?? $event->title}}">
                             @error('title')
                             <span class="text-sm invalid-feedback">
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group mb-2">
-                            <label for="address" class="mb-2">Address</label>
+                            <label for="address" class="mb-2">Address <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Address" name="address" value="{{old('address') ?? $event->address}}">
                             @error('address')
                             <span class="text-sm invalid-feedback">
@@ -38,8 +38,8 @@
                             @enderror
                         </div>
 
-                        <div class="form-group mb-4">
-                            <label for="description" class="form-label">Description</label>
+                        <div class="form-group description mb-2">
+                            <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
                             <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="" name="description">{{old('description') ?? $event->description}}</textarea>
                             @error('description')
                             <span class="text-sm invalid-feedback">
@@ -47,6 +47,62 @@
                             </span>
                             @enderror
                         </div>
+
+                        <div>
+                            <h4>Resource Person Details</h4>
+                        </div>
+
+                        <div class="col-12 col-lg-8">
+
+                            <div class="form-group mb-2">
+                                <label for="resource_person_name" class="mb-2">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('resource_person_name') is-invalid @enderror" id="resource_person_name" placeholder="Resource Person Name" name="resource_person_name" value="{{old('resource_person_name') ?? $event->resource_person_name}}">
+                                @error('resource_person_name')
+                                <span class="text-sm invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="resource_person_designation" class="mb-2">Designation <span class="text-danger">*</span></label>
+                                <textarea name="resource_person_designation" id="resource_person_designation" class="form-control  @error('resource_person_designation') is-invalid @enderror" cols="10" rows="5">{{old('resource_person_designation') ?? $event->resource_person_designation}}</textarea>
+                                @error('resource_person_designation')
+                                <span class="text-sm invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-3 mx-auto">
+                            <div class="card-body">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new img-thumbnail fixed" style="width: 190px; height: 190px;">
+                                        @if($event->person_image_url)
+                                        <img src="{{$event->person_image_url}}" alt="...">
+                                        @else
+                                        <img src="http://placehold.it/190x190&text=Person+Image" alt="...">
+                                        @endif
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists img-thumbnail fixed" style="max-width: 190px; max-height: 190px;"></div>
+                                    <div class="mt-2">
+                                        <span class="btn btn-outline-secondary btn-file">
+                                            <span class="fileinput-new">Select image</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" name="resource_person_image" class="@error('resource_person_image') is-invalid @enderror">
+                                            @error('resource_person_image')
+                                            <span class="text-sm invalid-feedback">
+                                                <strong>{{$message}}</strong>
+                                            </span>
+                                            @enderror
+                                        </span>
+                                        <a href="#" class="btn btn-outline-secondary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -57,7 +113,7 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-header">
-                    <h4 class="card-title">Event Category</h4>
+                    <h4 class="card-title">Event Category <span class="text-danger">*</span></h4>
                 </div>
 
                 <div class="card-body">
@@ -82,7 +138,7 @@
             <div class="card-content">
 
                 <div class="card-header">
-                    <h3 class="card-title">Date and Time</h3>
+                    <h3 class="card-title">Date and Time <span class="text-danger">*</span></h3>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -115,7 +171,7 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-header">
-                    <h3 class="card-title">Publish At</h3>
+                    <h3 class="card-title">Publish At <span class="text-danger">*</span></h3>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
@@ -137,7 +193,7 @@
         <div class="card">
             <div class="card-content ">
                 <div class="card-header">
-                    <h4 class="card-title">Image</h4>
+                    <h4 class="card-title">Event Thumbnail <span class="text-danger">*</span></h4>
                 </div>
                 <div class="card-body">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -145,7 +201,7 @@
                             @if($event->image_url)
                             <img src="{{$event->image_url}}" alt="...">
                             @else
-                            <img src="http://placehold.it/320x190&text=Feature+Image" alt="...">
+                            <img src="http://placehold.it/330x190&text=Event+Thumbnail" alt="...">
                             @endif
                         </div>
                         <div class="fileinput-preview fileinput-exists img-thumbnail fixed" style="max-width: 320px; max-height: 190px;"></div>

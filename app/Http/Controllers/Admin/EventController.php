@@ -12,11 +12,12 @@ class EventController extends Controller
 {
     protected $limit = 10;
 
-    protected $uploadPath;
+    protected $uploadPath, $personImageStorePath;
 
     public function __construct()
     {
        $this->uploadPath = public_path('events');
+       $this->personImageStorePath = public_path('person_image');
     }
 
     public function index(Request $request)
@@ -62,10 +63,16 @@ class EventController extends Controller
 
         $oldImage = $event->image;
 
+        $personOldImage = $event->resource_person_image;
+
         $event->update($data);
 
         if($oldImage !== $event->image){
-            $this->removeImage($oldImage);
+            $this->removeImage($oldImage,$this->uploadPath);
+        }
+
+        if($personOldImage !== $event->resource_person_image){
+            $this->removeImage($personOldImage,$this->personImageStorePath);
         }
 
         return redirect()->route('admin.events.index')->with('success','Event edited successfully!');
@@ -75,7 +82,9 @@ class EventController extends Controller
     {
         $event->delete();
 
-        $this->removeImage($event->image);
+        $this->removeImage($event->image,$this->uploadPath);
+
+        $this->removeImage($event->resource_person_image,$this->personImageStorePath);
 
         return redirect()->route('admin.events.index')->with('success','Event deleted successfully!');
     }
@@ -83,6 +92,7 @@ class EventController extends Controller
     protected function handleRequest($request){
         $data = $request->all();
 
+        // store event image
         if($request->hasFile('image')){
             $image = $request->file('image');
             $fileName = $image->getClientOriginalName();
@@ -93,12 +103,23 @@ class EventController extends Controller
             $data['image'] = $fileName;
         }
 
+        // store resource person image
+        if ($request->hasFile('resource_person_image')) {
+            $personImage = $request->file('resource_person_image');
+            $personImageName = $personImage->getClientOriginalName();
+            $personImageStoreDestionation = $this->personImageStorePath;
+
+            $personImage->move($personImageStoreDestionation, $personImageName);
+
+            $data['resource_person_image'] = $personImageName;
+        }
+
         return $data;
     }
 
-    protected function removeImage($image){
+    protected function removeImage($image,$storedPath){
         if(!empty($image)){
-            $imagePath = $this->uploadPath.'/'.$image;
+            $imagePath = $storedPath.'/'.$image;
 
             if(file_exists($imagePath)) unlink($imagePath);
         }

@@ -24,6 +24,11 @@ class CreateEventsTable extends Migration
             $table->dateTime('date');
             $table->time('time');
             $table->dateTime('published_at');
+
+            //fields for resource person
+            $table->string('resource_person_name');
+            $table->string('resource_person_image')->nullable();
+            $table->string('resource_person_designation');
             $table->timestamps();
         });
     }

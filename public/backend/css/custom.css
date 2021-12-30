@@ -2,3 +2,8 @@
     height: 130px;
     min-height: 130px;
 }
+
+.form-group.description .CodeMirror {
+    height: 170px;
+    min-height: 170px;
+}

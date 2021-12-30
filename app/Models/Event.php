@@ -20,6 +20,10 @@ class Event extends Model
         'time',
         'published_at',
         'event_category_id',
+
+        'resource_person_name',
+        'resource_person_image',
+        'resource_person_designation'
     ];
 
     public function eventCategory(){
@@ -42,6 +46,17 @@ class Event extends Model
         if(!is_null($this->image)){
             $imagePath = public_path()."/events/".$this->image;
             if(file_exists($imagePath)) $imageUrl = asset("events/".$this->image);
+        }
+
+        return $imageUrl;
+    }
+
+    public function getPersonImageUrlAttribute(){
+        $imageUrl = "";
+
+        if(!is_null($this->resource_person_image)){
+            $imagePath = public_path()."/person_image/".$this->resource_person_image;
+            if(file_exists($imagePath)) $imageUrl = asset("person_image/".$this->resource_person_image);
         }
 
         return $imageUrl;
