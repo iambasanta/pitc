@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="mb-2 form-group">
-                            <label for="title" class="mb-2">Title</label>
+                            <label for="title" class="mb-2">Title  <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Title" name="title" value="{{old('title') ?? $post->title}}" required>
                             @error('title')
                             <span class="text-sm invalid-feedback">
@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="mb-2 form-group">
-                            <label for="slug" class="mb-2">Slug</label>
+                            <label for="slug" class="mb-2">Slug <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{old('slug') ?? $post->slug}}" required>
                             @error('slug')
                             <span class="text-sm invalid-feedback">
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="mb-2 form-group">
-                            <label for="author" class="mb-2">Author</label>
+                            <label for="author" class="mb-2">Author <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" placeholder="Author" name="author" value="{{old('author') ?? $post->author}}" required>
                             @error('author')
                             <span class="text-sm invalid-feedback">
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="mb-4 form-group excerpt">
-                            <label for="excerpt" class="form-label">Excerpt</label>
+                            <label for="excerpt" class="form-label">Excerpt <span class="text-danger">*</span></label>
                             <textarea class="form-control @error('excerpt') is-invalid @enderror" id="excerpt" rows="" name="excerpt">{{old('excerpt') ?? $post->excerpt}}</textarea>
                             @error('excerpt')
                             <span class="text-sm invalid-feedback">
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="mb-4 form-group">
-                            <label for="body" class="form-label">Body</label>
+                            <label for="body" class="form-label">Body <span class="text-danger">*</span></label>
                             <textarea class="form-control @error('body') is-invalid @enderror" id="body" rows="" name="body">{{old('body') ?? $post->body}}</textarea>
                             @error('body')
                             <span class="text-sm invalid-feedback">
@@ -66,7 +66,7 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-header">
-                    <h3 class="card-title">Publish</h3>
+                    <h3 class="card-title">Publish <span class="text-danger">*</span></h3>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
@@ -88,7 +88,7 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-header">
-                    <h4 class="card-title">Category</h4>
+                    <h4 class="card-title">Category <span class="text-danger">*</span></h4>
                 </div>
 
                 <div class="card-body">

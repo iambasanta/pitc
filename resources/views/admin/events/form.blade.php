@@ -8,7 +8,7 @@
 
                 <div class="card-body">
                     <div class="row">
-                        <div class="form-group mb-2">
+                        <div class="mb-2 form-group">
                             <label for="title" class="mb-2">Title  <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Title" name="title" value="{{old('title') ?? $event->title}}">
                             @error('title')
@@ -18,7 +18,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group mb-2">
+                        <div class="mb-2 form-group">
                             <label for="slug" class="mb-2">Slug</label>
                             <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{old('slug') ?? $event->slug}}">
                             @error('slug')
@@ -28,7 +28,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group mb-2">
+                        <div class="mb-2 form-group">
                             <label for="address" class="mb-2">Address <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="Address" name="address" value="{{old('address') ?? $event->address}}">
                             @error('address')
@@ -38,7 +38,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group description mb-2">
+                        <div class="mb-2 form-group description">
                             <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
                             <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="" name="description">{{old('description') ?? $event->description}}</textarea>
                             @error('description')
@@ -54,7 +54,7 @@
 
                         <div class="col-12 col-lg-8">
 
-                            <div class="form-group mb-2">
+                            <div class="mb-2 form-group">
                                 <label for="resource_person_name" class="mb-2">Name <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('resource_person_name') is-invalid @enderror" id="resource_person_name" placeholder="Resource Person Name" name="resource_person_name" value="{{old('resource_person_name') ?? $event->resource_person_name}}">
                                 @error('resource_person_name')
@@ -64,7 +64,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group mb-2">
+                            <div class="mb-2 form-group">
                                 <label for="resource_person_designation" class="mb-2">Designation <span class="text-danger">*</span></label>
                                 <textarea name="resource_person_designation" id="resource_person_designation" class="form-control  @error('resource_person_designation') is-invalid @enderror" cols="10" rows="5">{{old('resource_person_designation') ?? $event->resource_person_designation}}</textarea>
                                 @error('resource_person_designation')
@@ -75,17 +75,17 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-3 mx-auto">
+                        <div class="mx-auto col-12 col-lg-3">
                             <div class="card-body">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="fileinput-new img-thumbnail fixed" style="width: 190px; height: 190px;">
+                                    <div class="fixed fileinput-new img-thumbnail" style="width: 190px; height: 190px;">
                                         @if($event->person_image_url)
                                         <img src="{{$event->person_image_url}}" alt="...">
                                         @else
                                         <img src="http://placehold.it/190x190&text=Person+Image" alt="...">
                                         @endif
                                     </div>
-                                    <div class="fileinput-preview fileinput-exists img-thumbnail fixed" style="max-width: 190px; max-height: 190px;"></div>
+                                    <div class="fixed fileinput-preview fileinput-exists img-thumbnail" style="max-width: 190px; max-height: 190px;"></div>
                                     <div class="mt-2">
                                         <span class="btn btn-outline-secondary btn-file">
                                             <span class="fileinput-new">Select image</span>
@@ -193,18 +193,18 @@
         <div class="card">
             <div class="card-content ">
                 <div class="card-header">
-                    <h4 class="card-title">Event Thumbnail <span class="text-danger">*</span></h4>
+                    <h4 class="card-title">Event Thumbnail</h4>
                 </div>
                 <div class="card-body">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new img-thumbnail fixed" style="width: 320px; height: 190px;">
+                        <div class="fixed fileinput-new img-thumbnail" style="width: 320px; height: 190px;">
                             @if($event->image_url)
                             <img src="{{$event->image_url}}" alt="...">
                             @else
                             <img src="http://placehold.it/330x190&text=Event+Thumbnail" alt="...">
                             @endif
                         </div>
-                        <div class="fileinput-preview fileinput-exists img-thumbnail fixed" style="max-width: 320px; max-height: 190px;"></div>
+                        <div class="fixed fileinput-preview fileinput-exists img-thumbnail" style="max-width: 320px; max-height: 190px;"></div>
                         <div class="mt-2">
                             <span class="btn btn-outline-secondary btn-file">
                                 <span class="fileinput-new">Select image</span>
