@@ -20,7 +20,22 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Super Admin',
                 'email' => 'superadmin@pitc.com',
-                'password' => bcrypt('@p9t3'),
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'Blog Admin',
+                'email' => 'blogadmin@pitc.com',
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'Event Admin',
+                'email' => 'eventadmin@pitc.com',
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'Member Admin',
+                'email' => 'memberadmin@pitc.com',
+                'password' => bcrypt('password'),
             ],
         ]);
     }
