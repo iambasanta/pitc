@@ -6,12 +6,11 @@ Prime IT Club is a student-run club working towards the goal of bridging the gap
 
 ## Contributing
 
-Thank you for considering contributing to the Prime IT Club's website. We are hoping that you have some prior knowledge about `PHP` and `Laravel`. Read `Local Installation Guide` to set the local development environment.
+Thank you for considering contributing to the Prime IT Club's website. We are hoping that you have some prior knowledge about `PHP` and `Laravel`. Read `Local Installation Guide` to set the development environment (local).
 
 ### Local Installation Guide
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/8.x)
-
 
 Clone the repository (or download the zip file and extract it)
 
@@ -60,5 +59,8 @@ Start the local development server
 
     php artisan serve
 
-Now you can visit http://localhost:8000 on your web-broswer to access the website.
+Now you can visit 
+- http://localhost:8000 (visitor)
+- http://localhost:8000/admin (admin)
 
+on your web-broswer to access the website.
