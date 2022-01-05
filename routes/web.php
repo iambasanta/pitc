@@ -15,11 +15,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('login', [LoginController::class, 'login'])->name('login');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group([
+        'middleware' => ['auth', 'check-permissions']
+    ], function () {
         Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('PreventBackToHistory');
 
-        Route::get('/profile',[HomeController::class,'edit'])->name('profile.edit');
-        Route::patch('/profile',[HomeController::class,'update'])->name('profile.update');
+        Route::get('/profile', [HomeController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [HomeController::class, 'update'])->name('profile.update');
 
         Route::resource('users', UserController::class);
 
@@ -29,7 +31,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::patch('posts/restore/{post}', [PostController::class, 'restore'])->name('posts.restore');
         Route::delete('posts/force-destroy/{post}', [PostController::class, 'forceDestroy'])->name('posts.force-destroy');
-        Route::resource('posts', PostController::class);
+        Route::resource('posts', PostController::class)->except('show');
 
         Route::resource('events', EventController::class)->except('show');
     });
