@@ -10,10 +10,10 @@
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
-                <div class="col-12 col-md-6 order-md-1 order-last">
+                <div class="order-last col-12 col-md-6 order-md-1">
                     <h3>Manage Members</h3>
                 </div>
-                <div class="col-12 col-md-6 order-md-2 order-first">
+                <div class="order-first col-12 col-md-6 order-md-2">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('admin.members.index')}}">Members</a></li>
@@ -72,7 +72,7 @@
                                     </div>
                                 </td>
                                 <td>{{$member->email}}</td>
-                                <td>{{$member->designation}}</td>
+                                <td>{{$member->designation ? $member->designation : '-'}}</td>
                                 <td>
                                     {{$member->batch}}
                                 </td>

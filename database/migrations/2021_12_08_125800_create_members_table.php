@@ -19,7 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('email');
             $table->string('image');
             $table->integer('type');
-            $table->string('designation');
+            $table->string('designation')->nullable();
             $table->string('batch');
             $table->string('facebook');
             $table->string('linkedin')->nullable();
