@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MemberRequest;
 use App\Models\Member;
 
 class MemberController extends Controller
@@ -17,8 +18,8 @@ class MemberController extends Controller
         return view('admin.members.create',compact('member'));
     }
 
-    public function store(){
-        $member = Member::create($this->validateRequest());
+    public function store(MemberRequest $request){
+        $member = Member::create($request->all());
 
         $this->storeImage($member);
         return redirect()->route('admin.members.index')->with('success','New member added successfully!');
@@ -28,9 +29,9 @@ class MemberController extends Controller
         return view('admin.members.edit',compact('member'));
     }
 
-    public function update(Member $member){
+    public function update(MemberRequest $request,Member $member){
         $oldImage = $member->image;
-        $member->update($this->validateRequest());
+        $member->update($request->all());
 
         $this->storeImage($member);
 
@@ -45,21 +46,6 @@ class MemberController extends Controller
         $member->delete();
         $this->removeImage($member->image);
         return redirect()->route('admin.members.index')->with('success','Member deleted successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'image' => 'file|image|mimes:jpg,jpeg,png|max:5000',
-            'type' => 'required',
-            'designation' => 'required',
-            'batch' => 'required',
-            'facebook' => 'required',
-            'linkedin'=>'nullable',
-            'testimonial'=>'nullable'
-        ]);
     }
 
     private function storeImage($member)

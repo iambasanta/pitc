@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -24,9 +23,9 @@ class UserController extends Controller
         return view('admin.users.create',compact('user','roles'));
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $user = User::create($this->validateRequest($request));
+        $user = User::create($request->all());
         $user->attachRole($request->role);
 
         return redirect()->route('admin.users.index')->with('success','New admin user added successfully!');
@@ -38,7 +37,7 @@ class UserController extends Controller
         return view('admin.users.edit',compact('user','roles'));
     }
 
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $user->update($request->all());
 
@@ -58,13 +57,4 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success','Admin user deleted successfully!');
     }
 
-    private function validateRequest($request){
-
-        return $request->validate([
-            'name'=>'required',
-            'email' =>'required|email|unique:users',
-            'password'=>'required|confirmed|min:8',
-            'role'=>'required'
-        ]);
-    }
 }

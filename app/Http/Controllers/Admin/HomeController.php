@@ -42,7 +42,7 @@ class HomeController extends Controller
         return $request->validate([
             'name'=>'required',
             'email' =>['required','email',Rule::unique('users','email')->ignore(auth()->user())],
-            'password'=>'required_with:password_confirmation|confirmed'
+            'password'=>'required|confirmed|min:8',
         ]);
     }
 }
