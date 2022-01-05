@@ -102,7 +102,7 @@
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                         <div class="fixed fileinput-new img-thumbnail" style="width: 450px; height: 440px;">
                             @if($member->image)
-                            <img src="{{asset('storage/'.$member->image)}}" alt="...">
+                            <img src="{{$member->imageUrl}}" alt="...">
                             @else
                             <img src="http://placehold.it/450x440&text=Member+Image" alt="...">
                             @endif

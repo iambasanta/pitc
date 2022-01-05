@@ -36,4 +36,15 @@ class Member extends Model
             1 => 'Executive',
         ];
     }
+
+    public function getImageUrlAttribute(){
+        $imageUrl = "";
+
+        if(!is_null($this->image)){
+            $imagePath = public_path()."/members/".$this->image;
+            if(file_exists($imagePath)) $imageUrl = asset("members/".$this->image);
+        }
+
+        return $imageUrl;
+    }
 }

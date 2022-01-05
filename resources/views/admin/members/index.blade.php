@@ -65,7 +65,7 @@
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-block">
-                                        <img src="{{asset('storage/'.$member->image)}}" alt="" class="rounded-circle" style="width: 40px; height:40px;">
+                                        <img src="{{$member->imageUrl}}" alt="" class="rounded-circle" style="width: 40px; height:40px;">
                                         <span class="p-2">
                                             {{$member->name}}
                                         </span>

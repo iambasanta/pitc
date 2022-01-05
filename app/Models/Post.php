@@ -45,7 +45,7 @@ class Post extends Model
         }
     }
 
-    public function getImageUrlAttribute($value){
+    public function getImageUrlAttribute(){
         $imageUrl = "";
 
         if(!is_null($this->image)){
