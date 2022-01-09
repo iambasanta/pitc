@@ -16,7 +16,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="role">Role <span class="text-danger">*</span></label>
+                    <label for="role" class="mb-2">Role <span class="text-danger">*</span></label>
+                    @if($user->id === config('cms.default_user_id'))
+                    <p class="font-bold form-control-static">{{ $user->roles->first()->display_name }}</p>
+                    @else
                     <select name="role" class="form-control @error('role') is-invalid @enderror">
                         <option value="" class="disabled">Select Role</option>
                         @foreach($roles as $role)
@@ -27,6 +30,7 @@
                         @endif
                         @endforeach
                     </select>
+                    @endif
                     @error('role')
                     <span class="text-sm invalid-feedback">
                         <strong>{{$message}}</strong>
