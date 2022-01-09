@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('date');
             $table->time('time');
             $table->dateTime('published_at');
+            $table->text('registration_link')->nullable();
 
             //fields for resource person
             $table->string('resource_person_name');

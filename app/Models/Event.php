@@ -20,6 +20,7 @@ class Event extends Model
         'time',
         'published_at',
         'event_category_id',
+        'registration_link',
 
         'resource_person_name',
         'resource_person_image',
