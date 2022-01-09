@@ -27,6 +27,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="role" class="mb-2">Role <span class="text-danger">*</span></label>
+                    <p class="font-bold form-control-static">{{ $user->roles->first()->display_name }}</p>
+                </div>
+
+                <div class="form-group">
                     <label for="password" class="mb-2">Password <span class="text-danger">*</span></label>
                     <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{old('password')}}">
                     @error('password')
@@ -48,10 +53,10 @@
 
                 <div class="d-flex justify-content-between">
                     <div class="form-group">
-                        <button class="btn btn-primary mt-4">{{$user->exists ? 'Update' : 'Create'}}</button>
+                        <button class="mt-4 btn btn-primary">{{$user->exists ? 'Update' : 'Create'}}</button>
                     </div>
                     <div class="form-group">
-                        <a href="{{route('admin.home')}}" class="btn btn-outline-secondary mt-4">Cancel</a>
+                        <a href="{{route('admin.home')}}" class="mt-4 btn btn-outline-secondary">Cancel</a>
                     </div>
                 </div>
             </div>
