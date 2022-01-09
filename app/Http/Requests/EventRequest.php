@@ -34,6 +34,7 @@ class EventRequest extends FormRequest
             'date'=>'required|date_format:Y-m-d',
             'time'=>'required|date_format:H:i',
             'published_at'=>'required|date_format:Y-m-d',
+            'registration_link'=>'nullable|url',
             'resource_person_name'=>'required',
             'resource_person_image'=>'mimes:jpeg,jpg,png,bmp',
             'resource_person_designation'=>'required',

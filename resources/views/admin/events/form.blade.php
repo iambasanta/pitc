@@ -48,7 +48,17 @@
                             @enderror
                         </div>
 
-                        <div>
+                        <div class="mb-2 form-group">
+                            <label for="registration_link" class="mb-2">Registration Link</span></label>
+                            <input type="text" class="form-control @error('registration_link') is-invalid @enderror" id="registration_link" placeholder="link" name="registration_link" value="{{old('registration_link') ?? $event->registration_link}}">
+                            @error('registration_link')
+                            <span class="text-sm invalid-feedback">
+                                <strong>{{$message}}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <div class="mt-4">
                             <h4>Resource Person Details</h4>
                         </div>
 
@@ -65,7 +75,7 @@
                             </div>
 
                             <div class="mb-2 form-group">
-                                <label for="resource_person_designation" class="mb-2">Designation <span class="text-danger">*</span></label>
+                                <label for="resource_person_designation" class="mb-2">Person Designation <span class="text-danger">*</span></label>
                                 <textarea name="resource_person_designation" id="resource_person_designation" class="form-control  @error('resource_person_designation') is-invalid @enderror" cols="10" rows="5">{{old('resource_person_designation') ?? $event->resource_person_designation}}</textarea>
                                 @error('resource_person_designation')
                                 <span class="text-sm invalid-feedback">
